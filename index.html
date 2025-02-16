@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>2048</h1>
+        <div class="controls">
+            <button id="themeToggle">🌙 Toggle Theme</button>
+            <button id="undoButton">↩ Undo</button>
+            <button id="hintButton">💡 Hint</button>
+            <button id="resetGameButton">⟳ Reset</button>
+            <select id="gridSizeSelector">
+                <option value="3">3x3</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+                <option value="6">6x6</option>
+            </select>
+            <select id="difficultySelector">
+                <option value="easy">Easy</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="hard">Hard</option>
+            </select>
+            <select id="levelSelector">
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+            </select>
+        </div>
+        <div class="timer">
+            Time Remaining: <span id="timeRemaining">0</span> seconds
+        </div>
+        <div class="score-board">
+            <div class="score">Score : <span id="score">0</span></div>
+            <div class="high-score">High Score : <span id="highScore">0</span></div>
+        </div>
+        <div class="grid"></div>
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+        <div class="win-screen" id="winScreen">
+            <h2>You Win!</h2>
+            <button onclick="continueGame()">Continue</button>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+        <div class="introduction">
+            <h2>Welcome to 2048!</h2>
+            <p>Join the numbers and get to the <strong>2048 tile!</strong></p>
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Use your arrow keys to move the tiles.</li>
+                <li>When two tiles with the same number touch, they merge into one!</li>
+                <li>Try to reach the 2048 tile to win the game.</li>
+            </ul>
+            <h3>Levels:</h3>
+            <ul>
+                <li>Level 1: Reach the 128 tile within 2 minutes.</li>
+                <li>Level 2: Reach the 256 tile within 3 minutes.</li>
+                <li>Level 3: Reach the 512 tile within 4 minutes.</li>
+            </ul>
+        </div>
+    </div>
+    <audio id="moveSound" src="move.mp3" preload="auto"></audio>
+    <audio id="mergeSound" src="merge.mp3" preload="auto"></audio>
+    <audio id="winSound" src="win.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="lose.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
